@@ -15,7 +15,8 @@ module.exports = {
  module: {
    rules: [
      {test: /\.tsx$|\.ts$/,use: ["babel-loader","ts-loader"],exclude: /node_modules/},
-     {test: /\.css$/,use: ["style-loader","css-loader"],exclude: /node_modules/}
+     {test: /\.css$/,use: ["style-loader","css-loader"],exclude: /node_modules/},
+     {test: /\.svg$/,type: "asset/resource"}
    ]
  }
 }
