@@ -5,7 +5,7 @@ const {useState,Fragment,createRef,useRef,useEffect} = React;
 
 // Burger menu and search icons ...
 
- function Options(props: {searchOpen: [boolean,(arg0: boolean) => void]}): React.ReactElement {
+ function Options(props: {searchOpen: [boolean,(arg0: boolean) => void]}): React.ReactElement<{},"Fragment"> {
 
   let [isSearchOpen,setIsSearchOpen] = props.searchOpen;
      let [isMenuOpen,setIsMenuOpen] = useState<boolean>(false);
@@ -18,7 +18,7 @@ const {useState,Fragment,createRef,useRef,useEffect} = React;
 
    function openMenu(): void {
      if (!isMenuOpen) {
-       document.body.style.overflowY = "hidden";
+       // document.body.style.overflowY = "hidden";
        document.querySelector<HTMLDivElement>(".mdb-1")!.style.transform = "translateY(calc((2em/5)*2)) rotate(45deg)";
        document.querySelector<HTMLDivElement>(".mdb-2")!.style.transform = "rotate(-45deg)";
        document.querySelector<HTMLDivElement>(".mdb-3")!.style.transform = "translateY(calc((-2em/-5)*-2)) rotate(45deg)";
@@ -64,7 +64,14 @@ document.querySelector<HTMLDivElement>(".mdb-3")!.style.transform = "translateY(
    <div className="main-dropdown-bar mdb-3"></div>
   </div> 
   </div>
-   <div className="main-dropdown-content" style={{transform: (isMenuOpen) ? "translateX(0%)":"translateX(100%)"}}>
+   <div className="main-dropdown-content" style={{transform: (isMenuOpen) ? "translateX(0%)":"translateX(100%)",position: (isMenuOpen) ? "fixed":"absolute"}}>
+   <ul>
+    <li><h2>Home</h2></li>
+    <li><h2>Profile</h2></li>
+    <li><h2>Settings</h2></li>
+    <li><h2>Sign Up</h2></li>
+    <li><h2>Log In</h2></li>
+   </ul>
    </div>
   </Fragment>
  )
@@ -72,7 +79,7 @@ document.querySelector<HTMLDivElement>(".mdb-3")!.style.transform = "translateY(
 
 // Header content
 
-export default function Header(): React.ReactElement {
+export default function Header(): React.ReactElement<{className: string},"header"> {
 
   const [isSearchOpen,setIsSearchOpen] = useState<boolean>(false);
 

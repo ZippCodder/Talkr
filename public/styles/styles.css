@@ -1,10 +1,10 @@
+
 html,body {
 height: 100%;
 overflow-X: hidden;
 margin: 0;
 padding: 0;
-background: var(--bg-light);
-position: relative;
+position: relative
 }
 
 * {
@@ -52,13 +52,44 @@ transform: translateX(0);
 position: absolute;
 min-width: 200px;
 width: 100%;
-height: 100vh;
-background-color: white;
+height: calc(100vh - (8vmin + 3em));
+background-color: rgba(255,255,255,0.9);
 right: 0;
 top: calc(3vmin + 3em);
 transform: translateX(100%);
 transition: transform 0.5s ease-out;
 z-index: 2;
+overflow: scroll;
+overscroll-behavior: contain;
+}
+
+.main-dropdown-content ul {                                                              
+list-style-type: none;
+box-sizing: content-box;
+font-size: clamp(1em,3vmin,3em);
+}                        
+                                                                    
+.main-dropdown-content ul > li {                                                         
+text-align: center;                                                                   
+width: 100%;
+padding-top: 5vmin;
+padding-bottom: 5vmin;                                                                   
+color: var(--bg-blue);                           
+font-family: 'Roboto Mono', monospace;
+transition: background-color 0.3s ease-in; 
+}
+
+.main-dropdown-content ul:first-child {
+padding-top: 15vmin;
+}
+
+.main-dropdown-content ul:last-child {
+padding-bottom: 30vmin;
+}
+
+.main-dropdown-content ul > li:hover {
+background-color: var(--bg-blue);
+color: white;
 }
 
 .main-dropdown-bar {
@@ -146,38 +177,12 @@ width: 65vw;
 right: 100%;
 border-radius: 2em;
 border: none;
-transition: width 0.5s ease-out;
 height: 100%;
+transition: width 0.5s ease-out;
 margin-right: 1em;
 box-sizing: border-box;
 font-family: 'Roboto Mono', monospace;
 text-overflow: ellipse;
 }
  
-/* MEDIA QUERIES */
 
-@media all and (max-width: 800px) {
- .search-icon {
- display: inline-flex;
-}
-.search-profile {
- display: none;
-}
-.phone, .mimg, .main-animation {
- width: 90%;
-}
-}
-
-@media all and (max-width: 600px) {
- .intro-button {
- display: block;
- margin: auto;
- margin-top: 2em;
-}
-}
-
-@media all and (max-width: 400px) {
- .sub-text {
- display: none;
-}
-}

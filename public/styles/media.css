@@ -1,0 +1,168 @@
+
+/* MEDIA QUERIES
+
+320px - 480px: Mobile devices.
+481px - 768px: iPads, Tablets.
+769px - 1024px: Small screens, laptops.
+1025px - 1200px: Desktops, large screens.
+1201px and more - Extra large screens, TV.
+
+*/
+
+/* General rules */
+
+@media all and (orientation: landscape) {
+.search-icon {
+ display: none;
+}
+.search-profile {
+ display: block;
+}
+}
+
+@media all and (orientation: portrait) {
+.search-icon {
+ display: inline-flex;
+}
+.search-profile {
+ display: none;
+}
+}
+
+/* Phones */
+
+@media all and (max-width: 480px) {
+ .sub-text {
+ display: none;
+}
+.search-icon {
+ display: inline-flex;
+}
+.search-profile {
+ display: none;
+}
+.mimg, .main-animation {
+width: 90vw;
+}
+.main-animation {
+ left: calc(50% - 45vw);
+}
+.homepage-content {
+ font-size: clamp(5px,4vw,15px);
+}
+.intro-button {
+width: clamp(150px,45vw,250px);
+min-height: clamp(30px,15vw,60px);
+display: block;
+margin: auto;
+margin-top: 2em;
+}
+.homepage-quote {
+ width: 100%;
+}
+.github-img {
+ margin-right: 0;
+ margin-bottom: 5vw;
+}
+.main-footer {
+ flex-direction: column;
+}
+}
+
+/* Tablets */
+
+@media all and (max-width: 768px) and (min-width: 481px) {
+ .search-icon {
+ display: inline-flex;
+}
+.search-profile {
+ display: none;
+}
+.phone, .mimg, .main-animation {
+ width: 80vw;
+}
+.sub-text {
+ display: inline-block;
+}
+.main-animation {
+ left: calc(50% - 40vw);
+}
+.homepage-content {
+ font-size: clamp(5px,4vw,15px);
+}
+.intro-button {
+width: clamp(150px,45vw,250px);
+min-height: clamp(30px,15vw,60px);
+display: block;
+margin: auto;
+margin-top: 2em;
+}
+.homepage-quote {
+ width: 80%;
+}
+}
+
+@media all and (min-width: 481px) {
+.github-img {
+ display: inline-block;
+ vertical-align: middle;
+ margin-right: 5vw;
+}
+.copyright {
+ display: inline-block;
+ vertical-align: middle;
+}
+}
+
+
+/* Small screens and Laptops */
+
+@media all and (max-width: 1024px) and (min-width: 769px) {
+ .homepage-content {
+ font-size: clamp(5px,2vw,15px);
+}
+.homepage-intro {
+ padding-left: 10%;
+ padding-right: 10%;
+ box-sizing: border-box;
+}
+.intro-button {
+min-width: clamp(150px,18vw,250px);
+min-height: clamp(30px,9vw,60px);
+display: inline-block;
+vertical-align: middle;
+margin: auto;
+margin-top: 2em;
+}
+.ib-1 {
+ margin-right: 5%;
+}
+.main-animation {
+ left: calc(50% - 25vw);
+ width: 25vw;
+}
+.mimg {
+display: block;
+margin: auto;
+width: 50vw;
+}
+.homepage-quotes {
+grid-template-columns: auto auto auto;
+grid-template-rows: auto;
+grid-column-gap: 5%;
+font-size: clamp(5px,2vw,15px);
+}
+.main-footer {
+padding-top: 5%;
+padding-bottom: 5%;
+}
+.github-img {
+ width: 5vw;
+}
+.homepage-quotes {
+ padding-top: 25%;
+}
+.homepage-intro {
+ padding-bottom: 2%;
+}
+}
