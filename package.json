@@ -2,17 +2,21 @@
   "name": "talkr",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode=production",
-    "serve": "webpack serve --mode=development",
-    "start": "node index.js"
+"update:src": "babel src/components --extensions .tsx --out-file-extension .cjs --presets @babel/preset-typescript --out-dir .",
+    "build:src": "webpack --mode production",
+    "build:server": "babel --out-file index.build.js --no-babelrc --presets @babel/preset-react index.js",
+    "serve:dev": "webpack serve --mode development",
+    "serve:prod": "node index.build.js",
+    "start": "npx nodemon index.build.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ZippCodder/talkr.git"
   },
-  "author": "",
+  "author": "Deon Rich",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ZippCodder/talkr/issues"
@@ -23,12 +27,14 @@
     "@babel/core": "^7.13.10",
     "@babel/preset-env": "^7.13.10",
     "@babel/preset-react": "^7.12.13",
+    "@babel/preset-typescript": "^7.13.0",
     "@types/node": "^14.14.35",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.2",
     "@types/react-router": "^5.1.13",
     "@types/react-router-dom": "^5.1.7",
     "babel-loader": "^8.2.2",
+    "babel-plugin-transform-remove-imports": "^1.5.2",
     "css-loader": "^5.1.3",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.18",
@@ -42,6 +48,7 @@
     "express": "^4.17.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-dom-server": "0.0.5",
     "react-router-dom": "^5.2.0"
   }
 }

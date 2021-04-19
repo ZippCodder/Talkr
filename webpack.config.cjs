@@ -1,6 +1,6 @@
 const path = require("path");
 
-module.exports = {
+module.exports =  {
  devServer: {
   contentBase: "./public",
   port: 5000
@@ -14,7 +14,7 @@ module.exports = {
  },
  module: {
    rules: [
-     {test: /\.tsx$|\.ts$/,use: ["babel-loader","ts-loader"],exclude: /node_modules/},
+     {test: /\.tsx$|\.ts$/,use: [{loader: "babel-loader",options: {plugins: [["babel-plugin-transform-remove-imports",{test: "^\.$"}]]}},"ts-loader"],exclude: /node_modules/},
      {test: /\.css$/,use: ["style-loader","css-loader"],exclude: /node_modules/},
      {test: /\.svg$/,type: "asset/inline"}
    ]

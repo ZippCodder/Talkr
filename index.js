@@ -1,9 +1,30 @@
-const express = require("express");
-const path = require("path");
+import express from "express";
+import path from "path";
+import fs from "fs";
+import ReactDOMServer from "react-dom/server.js";
+import React from "react";
+import Home from "./home.cjs";
+import Footer from "./footer.cjs";
+import Header from "./header.cjs";
+
 const app = express();
 
+console.log(ReactDOMServer.renderToString(<><Header.default /><Home.default /><Footer.default /></>));
+
 app.get("/",(req,res) => {
- res.sendFile(path.resolve("./public/index.html"));
+ fs.readFile("./public/index.html","utf-8",(err,data) => {
+  if (!err && data) {
+  let App = data.replace("<%_INITIAL_CONTENT_%>",`
+     <main>
+     ${ReactDOMServer.renderToString(<><Header.default /><Home.default /><Footer.default /></>)}
+     </main>
+`);
+res.type("text/html");
+res.send(data);
+} else {
+ res.sendStatus(500);
+}
+})
 });
 
 app.get("/App.bundle.js",(req,res) => {

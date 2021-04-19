@@ -1,8 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+// @ts-ignore
 import Phone from "../../public/images/phone.svg";
+// @ts-ignore
 import Msg1 from "../../public/images/message_1.svg";
+// @ts-ignore
 import Msg2 from "../../public/images/message_2.svg";
+// @ts-ignore
 import Msg3 from "../../public/images/message_3.svg";
 
  export default function Home(): React.ReactElement<{className: string},"main"> {
