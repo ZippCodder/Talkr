@@ -9,6 +9,15 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+// @ts-ignore
+var Phone = "assets/images/phone.svg"; // @ts-ignore
+
+var Msg1 = "assets/images/message_1.svg"; // @ts-ignore
+
+var Msg2 = "assets/images/message_2.svg"; // @ts-ignore
+
+var Msg3 = "assets/images/message_3.svg";
+
 function Home() {
   return /*#__PURE__*/_react["default"].createElement("main", {
     className: "homepage-content"

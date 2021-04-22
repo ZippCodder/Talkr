@@ -5,9 +5,6 @@
 "@babel/preset-env"
 ],
 "plugins": [
-  [
- "babel-plugin-transform-remove-imports",
- { test: "\.svg$" }
-]
+["babel-plugin-transform-assets-import-to-string",{baseUri: "assets/images"}]
 ]
 }
